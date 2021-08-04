@@ -9,10 +9,12 @@ import java.util.Set;
 
 public class Vacunarte {
 	 
-	public String nombre;
-	public Set <Paciente> pacientes;
-	public Map <Integer, Paciente> pacientesVacunados;
-	public List <Paciente> pacientesVacunadosPorCovid;
+	private String nombre;
+	private Set <Paciente> pacientes;
+	private Map <Integer, Paciente> pacientesVacunados;
+	private List <Paciente> pacientesVacunadosPorCovid;
+	private PorDni ordenador = new PorDni();
+	
 	
 	
 	public Vacunarte (String nombre){
@@ -38,14 +40,18 @@ public class Vacunarte {
 		
 	}
 	
-	public Boolean vacunarAlPaciente(Integer codigoDeVacuna, Paciente paciente){
+	public Boolean vacunarAlPaciente(Integer codigoDeVacuna, Paciente paciente) throws NoMoreVaccineException{
 		if(!pacientesVacunados.containsKey(codigoDeVacuna)|| !pacientesVacunados.containsValue(paciente)){
 			pacientesVacunados.put(codigoDeVacuna, paciente);
 			return true;
 		}
+		if(paciente.getVacunasDadas().equals(3))
+			throw new NoMoreVaccineException();
 		return false;
 		
 	}
+	
+	
 
 
 	public String getNombre() {
@@ -91,6 +97,7 @@ public class Vacunarte {
 			List<Paciente> pacientesVacunadosPorCovid) {
 		this.pacientesVacunadosPorCovid = pacientesVacunadosPorCovid;
 	}
+	
 	
 	
 

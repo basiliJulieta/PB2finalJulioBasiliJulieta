@@ -5,6 +5,7 @@ public class Covid19 extends Vacuna{
 	public Integer codigo;
 	public String primeraDosis;
 	public String segundaDosis;
+	public Boolean vacunaDada;
 	
 	public Covid19(Integer codigo, String primeraDosis, String segundaDosis){
 		super(codigo);
@@ -15,7 +16,7 @@ public class Covid19 extends Vacuna{
 	@Override
 	public Boolean vacunaDada() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.vacunaDada;
 	}
 
 	public Integer getCodigo() {

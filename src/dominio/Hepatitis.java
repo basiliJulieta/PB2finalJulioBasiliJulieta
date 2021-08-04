@@ -2,7 +2,7 @@ package dominio;
 
 public class Hepatitis extends Vacuna {
 	
-	
+	public Boolean vacunaDada;
 
 	public Hepatitis(Integer codigo) {
 		super(codigo);
@@ -12,7 +12,7 @@ public class Hepatitis extends Vacuna {
 	@Override
 	public Boolean vacunaDada() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.vacunaDada;
 	}
 
 }
